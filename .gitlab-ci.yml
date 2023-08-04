@@ -68,7 +68,7 @@ Dev:apply:
     - gitlab-terraform output -raw ip>ip.txt 
   artifacts:
     paths:
-      - ip.txt   
+      - ${TF_ROOT}/ip.txt   
   dependencies:
     - Dev:plan
   # when: manual
