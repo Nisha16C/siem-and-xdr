@@ -64,8 +64,11 @@ Dev:apply:
   environment:
     name: Dev
   script:
-    - gitlab-terraform apply   
-    
+    - gitlab-terraform apply
+    - gitlab-terraform output -raw ip>ip.txt 
+  artifacts:
+    paths:
+      - ip.txt   
   dependencies:
     - Dev:plan
   # when: manual
