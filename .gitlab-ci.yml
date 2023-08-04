@@ -36,7 +36,7 @@ Dev:validate:
     
   tags:
     - "terraform"  
-  when: manual  
+  # when: manual  
 
 Dev:plan:
   stage: build
@@ -54,7 +54,7 @@ Dev:plan:
       terraform: ${TF_ROOT}/plan.json
   tags:
     - "terraform" 
-  when: manual
+  # when: manual
        
 
 # Separate apply job for manual launching Terraform as it can be destructive
@@ -68,7 +68,7 @@ Dev:apply:
     
   dependencies:
     - Dev:plan
-  when: manual
+  # when: manual
   
   tags:
     - "terraform"
