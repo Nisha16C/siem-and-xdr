@@ -64,6 +64,7 @@ Dev:apply:
   environment:
     name: Dev
   script:
+    - pwd artifacts.zip
     - gitlab-terraform apply
     - gitlab-terraform output -raw ip>ip.txt 
   artifacts:
