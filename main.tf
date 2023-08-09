@@ -26,7 +26,7 @@ resource "cloudstack_instance" "vm1" {
     #!/bin/bash
     echo "Setting up the ubuntu user..."
     useradd -m -s /bin/bash ubuntu
-    echo "ubuntu:ubuntu" | chpasswd
+    echo "ubuntu:linux" | chpasswd
     sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
     systemctl restart sshd
     touch /ankit.txt
