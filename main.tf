@@ -21,6 +21,22 @@ resource "cloudstack_instance" "vm1" {
   keypair          = "rdp"
   #ip_address       = "192.168.30.70"
   expunge          = "true"
+  user_data = <<-EOF
+  #USER DATA
+  user: ubuntu
+  password: ubuntu
+  chpasswd:
+      expire: false
+  ssh_pwauth: true
+  package_update: true
+  packages:
+    - qemu-guest-agent
+    - apt-transport-https
+    - curl
+  runcmd:
+    - echo 'hello'
+
+  EOF
 }
 
 // resource "cloudstack_instance" "vm2" {
