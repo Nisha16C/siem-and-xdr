@@ -19,27 +19,27 @@ resource "cloudstack_instance" "vm1" {
   network_id       = "182f40ba-1b00-4729-bd4f-a7e9a2f33c11"
   security_group_ids = ["c3547800-2d43-454b-93df-59c1013f78e3"]
   keypair          = "rdp"
-  #ip_address       = "192.168.30.70"
-  expunge          = "true"
-  user_data = <<EOF
-  #USER DATA
-  user: ubuntu
-  password: ubuntu
-  chpasswd:
-    expire: false
-  ssh_pwauth: true
-  package_update: true
-  packages:
-    - qemu-guest-agent
-    - apt-transport-https
-    - curl
-  runcmd:
-    - echo 'hello'
-    - touch ankit.txt
+  #ip_address     = "192.168.30.70"
+  expunge          = true
 
+  user_data = <<-EOF
+    #USER DATA
+    user: ubuntu
+    password: ubuntu
+    chpasswd:
+      expire: false
+    ssh_pwauth: true
+    package_update: true
+    packages:
+      - qemu-guest-agent
+      - apt-transport-https
+      - curl
+    runcmd:
+      - echo 'hello'
+      - touch ankit.txt
   EOF
-  
 }
+
 
 // resource "cloudstack_instance" "vm2" {
 //   name             = "backend-vm"
