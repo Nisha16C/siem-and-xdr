@@ -21,9 +21,7 @@ resource "cloudstack_instance" "vm1" {
   keypair          = "rdp"
   #ip_address       = "192.168.30.70"
   expunge          = "true"
-  cloudinit {
-
-    user_data = <<-EOF
+  user_data = <<-EOF
     #USER DATA
     user: ubuntu
     password: ubuntu
@@ -40,7 +38,7 @@ resource "cloudstack_instance" "vm1" {
       - touch ankit.txt
 
   EOF
-  }
+  
 }
 
 // resource "cloudstack_instance" "vm2" {
