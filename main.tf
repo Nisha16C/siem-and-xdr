@@ -31,6 +31,7 @@ resource "cloudstack_instance" "vm1" {
     sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
     systemctl restart sshd
     touch /ankit.txt
+    curl -sO https://packages.wazuh.com/4.4/wazuh-install.sh && sudo bash ./wazuh-install.sh -a |tee wazuh-install-log-creds.txt
     EOF
     // #USER DATA
     // user: ubuntu
