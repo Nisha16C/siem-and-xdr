@@ -23,21 +23,29 @@ resource "cloudstack_instance" "vm1" {
   expunge          = true
 
   user_data = <<-EOF
-    #USER DATA
-    user: ubuntu
-    password: ubuntu
-    chpasswd:
-      expire: false
-    ssh_pwauth: true
-    package_update: true
-    packages:
-      - qemu-guest-agent
-      - apt-transport-https
-      - curl
-    runcmd:
-      - echo 'hello'
-      - touch ankit.txt
-  EOF
+    #!/bin/bash
+    echo "Setting up the ubuntu user..."
+    useradd -m -s /bin/bash ubuntu
+    echo "ubuntu:ubuntu" | chpasswd
+    passwd -e ubuntu  # This line will disable password expiration
+    sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+    systemctl restart sshd
+    EOF
+    // #USER DATA
+    // user: ubuntu
+    // password: ubuntu
+    // chpasswd:
+    //   expire: false
+    // ssh_pwauth: true
+    // package_update: true
+    // packages:
+    //   - qemu-guest-agent
+    //   - apt-transport-https
+    //   - curl
+    // runcmd:
+    //   - echo 'hello'
+    //   - touch ankit.txt
+
 }
 
 
