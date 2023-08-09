@@ -27,7 +27,6 @@ resource "cloudstack_instance" "vm1" {
     echo "Setting up the ubuntu user..."
     useradd -m -s /bin/bash ubuntu
     echo "ubuntu:ubuntu" | chpasswd
-    passwd -e ubuntu  # This line will disable password expiration
     sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
     systemctl restart sshd
     touch /ankit.txt
