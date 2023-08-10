@@ -88,7 +88,8 @@ Dev:install:
     - VM_IP=$(cat ip.txt)
     - chmod +x install_tool.sh
     - echo "" > ~/.ssh/known_hosts
-    - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@${VM_IP} "./install_tool.sh" > wazuh-install-log-creds.txt
+    - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@${VM_IP}<install_tool.sh
+    - sudo scp -i user1-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/wazuh_credentials.txt ${TF_ROOT}/wazuh_credentials.txt
   tags:
     - "shell"
   needs:
@@ -99,7 +100,7 @@ Dev:install:
   when: manual
   artifacts:
     paths:
-      - wazuh-install-log-creds.txt
+      - ${TF_ROOT}/wazuh_credentials.txt
 
 Dev:destroy:
   stage: destroy
