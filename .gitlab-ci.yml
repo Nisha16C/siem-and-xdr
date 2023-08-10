@@ -80,7 +80,7 @@ Dev:apply:
 
 Dev:install:
   stage: install
-  enviroment:
+  environment:
     name: Dev
   before_script:
     - chmod 400 cloudstack-key
