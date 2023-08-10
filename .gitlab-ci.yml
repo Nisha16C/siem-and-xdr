@@ -89,7 +89,7 @@ Dev:install:
     - chmod +x install_tool.sh
     - echo "" > ~/.ssh/known_hosts
     - export VM_IP=$(terraform output -json ip | jq -r '.value')
-    - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@$VM_IP <install_tool.sh
+    - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@${VM_IP}<install_tool.sh
   tags:
     - "shell"
   needs:
