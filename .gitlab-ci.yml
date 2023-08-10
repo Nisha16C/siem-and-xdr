@@ -88,7 +88,7 @@ Dev:install:
     - VM_IP=$(cat ip.txt)
     - chmod +x install_tool.sh
     - echo "" > ~/.ssh/known_hosts
-    - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@${VM_IP}<install_tool.sh
+    - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@${VM_IP} "./install_tool.sh" > wazuh-install-log-creds.txt
   tags:
     - "shell"
   needs:
