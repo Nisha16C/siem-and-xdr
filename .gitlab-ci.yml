@@ -101,7 +101,7 @@ Dev:install:
   #     job: Dev:apply
   #     ref: wazuh-s100
   #     artifacts: true
-  when: manual
+  # when: manual
   artifacts:
     paths:
       - ${TF_ROOT}/wazuh_credentials.txt
