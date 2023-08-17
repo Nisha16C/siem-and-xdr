@@ -32,7 +32,7 @@ Dev:validate:
     name: Dev
 
   script:      
-    # - test
+    - test
     - gitlab-terraform init
     - gitlab-terraform validate
     
