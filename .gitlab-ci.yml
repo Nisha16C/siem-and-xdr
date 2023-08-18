@@ -38,7 +38,9 @@ Dev:validate:
     
   tags:
     - "terraform"  
-  when: manual  
+  only:
+    variables:
+      - $TRIGGER_JOB == "validate" 
 
 Dev:plan:
   stage: build
