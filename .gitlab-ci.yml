@@ -38,7 +38,7 @@ Dev:validate:
     
   tags:
     - "terraform"  
-  #when: manual  
+  when: manual  
 
 Dev:plan:
   stage: build
@@ -56,7 +56,7 @@ Dev:plan:
       terraform: ${TF_ROOT}/plan.json
   tags:
     - "terraform" 
-  #when: manual
+  when: manual
        
 
 # Separate apply job for manual launching Terraform as it can be destructive
@@ -74,7 +74,7 @@ Dev:apply:
       - ip.txt   
   dependencies:
     - Dev:plan
-  #when: manual
+  when: manual
   
   tags:
     - "terraform"
@@ -101,7 +101,7 @@ Dev:install:
   #     job: Dev:apply
   #     ref: wazuh-s100
   #     artifacts: true
-  # when: manual
+  when: manual
   artifacts:
     paths:
       - ${TF_ROOT}/wazuh_credentials.txt
