@@ -38,8 +38,11 @@ Dev:validate:
     
   tags:
     - "terraform"  
+  only:
+    - triggers
   when: manual
-  # only:
+  variables:
+    TRIGGER_JOB: "validate"
   #   variables:
   #     - $TRIGGER_JOB == "validate" 
 
