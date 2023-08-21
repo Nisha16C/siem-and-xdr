@@ -38,8 +38,8 @@ Dev:validate:
     
   tags:
     - "terraform"  
-  only:
-    - triggers
+  # only:
+  #   - triggers
   when: manual
   # variables:
   #   TRIGGER_JOB: "validate"
