@@ -41,10 +41,10 @@ Dev:validate:
   # only:
   #   - triggers
   when: manual
-  variables:
-    TRIGGER_JOB: "validate"
-    variables:
-      - $TRIGGER_JOB == "validate" 
+  # variables:
+    # TRIGGER_JOB: "validate"
+    # variables:
+    #   - $TRIGGER_JOB == "validate" 
 
 Dev:plan:
   stage: build
