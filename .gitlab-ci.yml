@@ -99,14 +99,13 @@ Dev:install:
     - sudo scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/wazuh_credentials.txt ${TF_ROOT}/wazuh_credentials.txt
   tags:
     - "shell"
-  dependencies:
-    - Dev:apply
-  # needs:
-  #   - project: soc/siem-and-xdr
-  #     job: Dev:apply
-  #     ref: wazuh-s100
-  #     artifacts: true
-  when: manual
+  
+  needs:
+    - project: soc/siem-and-xdr
+      job: Dev:apply
+      ref: wazuh-s100
+      artifacts: true
+  # when: manual
   artifacts:
     paths:
       - ${TF_ROOT}/wazuh_credentials.txt
