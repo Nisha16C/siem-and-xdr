@@ -41,9 +41,7 @@ Dev:validate:
   # only:
   #   - triggers
   when: manual
-  rules:
-    - exists:
-        - $TRIGGER_JOB
+  
     # variables:
     #   - $TRIGGER_JOB == "validate" 
 
