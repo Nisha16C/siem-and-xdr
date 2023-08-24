@@ -37,7 +37,7 @@ Dev:install:
     - sleep 30s
     # - echo "" > ~/.ssh/known_hosts
     - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@${VM_IP}<install_tool.sh
-    - sudo scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/wazuh_credentials.txt ${TF_ROOT}/wazuh_credentials.txt
+    - scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/wazuh_credentials.txt ${TF_ROOT}/wazuh_credentials.txt
   tags:
     - "terraform"
   # when: manual
