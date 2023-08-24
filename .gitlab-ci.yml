@@ -16,73 +16,14 @@ before_script:
 
 
 stages:
-  - validate
-  - build
-  - deploy
   - install
-  - destroy
+  
 
 ####################
 # DEV environment
 ####################  
 
-Dev:validate:
-  stage: validate
-  environment:
-    name: Dev
 
-  script:      
-    - test
-    - gitlab-terraform init
-    - gitlab-terraform validate
-    
-  tags:
-    - "terraform"  
-  # only:
-  #   - triggers
-  when: manual
-  
-    # variables:
-    #   - $TRIGGER_JOB == "validate" 
-
-Dev:plan:
-  stage: build
-  environment:
-    name: Dev 
-  script:
-    - gitlab-terraform plan 
-    - gitlab-terraform plan-json
-   
-  artifacts:
-    name: plan
-    paths:
-      - ${TF_ROOT}/plan.cache
-    reports:
-      terraform: ${TF_ROOT}/plan.json
-  tags:
-    - "terraform" 
-  when: manual
-       
-
-# Separate apply job for manual launching Terraform as it can be destructive
-# action.
-Dev:apply:
-  stage: deploy
-  environment:
-    name: Dev
-  script:
-    - pwd artifacts.zip
-    - gitlab-terraform apply
-    - gitlab-terraform output -raw ip>ip.txt 
-  artifacts:
-    paths:
-      - ip.txt   
-  dependencies:
-    - Dev:plan
-  when: manual
-  
-  tags:
-    - "terraform"
 
 Dev:install:
   stage: install
@@ -110,16 +51,4 @@ Dev:install:
     paths:
       - ${TF_ROOT}/wazuh_credentials.txt
 
-Dev:destroy:
-  stage: destroy
-  environment:
-    name: Dev
-  script:   
-    - gitlab-terraform destroy
-  dependencies:
-    - Dev:plan
-    - Dev:apply
-  when: manual
- 
-  tags:
-    - "terraform"      
+    
