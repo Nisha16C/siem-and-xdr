@@ -3,7 +3,7 @@ variables:
   TF_ROOT: ${CI_PROJECT_DIR}
 
   #change state name at the last of URL according to the environment...
-  TF_ADDRESS: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/terraform/state/dev
+  TF_ADDRESS: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/terraform/state/wazuh
   
 
 cache:
@@ -87,7 +87,7 @@ Dev:apply:
 Dev:install:
   stage: install
   environment:
-    name: Dev
+    name: Wazuh
   before_script:
     - chmod 400 cloudstack-key
   script:
