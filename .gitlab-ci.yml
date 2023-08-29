@@ -39,13 +39,13 @@ Dev:install:
     - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@${VM_IP}<install_tool.sh
     
 
-    - scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/elastic_credentials.txt ${TF_ROOT}/elastic_credentials.txt
+    - scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/elastic_cred.txt ${TF_ROOT}/elastic_cred.txt
   tags:
     - "terraform"
   when: manual
   artifacts:
     paths:
-      - ${TF_ROOT}/wazuh_credentials.txt
+      - ${TF_ROOT}/elastic_cred.txt
 
   needs:
     - project: soc/siem-and-xdr
