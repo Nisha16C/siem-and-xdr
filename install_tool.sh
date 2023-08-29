@@ -1,5 +1,6 @@
 # curl -sO https://packages.wazuh.com/4.4/wazuh-install.sh && sudo bash ./wazuh-install.sh -a |tee wazuh-install-log-creds.txt
 # grep -Eo 'User:[[:space:]]*[^[:space:]]+|Password:[[:space:]]*[^[:space:]]+' wazuh-install-log-creds.txt >> wazuh_credentials.txt
+sudo -i 
 apt-get install apt-transport-https zip unzip lsb-release curl gnupg -y
 echo "deb [signed-by=/usr/share/keyrings/elasticsearch.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-7.x.list
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch.gpg
