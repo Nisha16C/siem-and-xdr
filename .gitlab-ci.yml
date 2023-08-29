@@ -40,7 +40,7 @@ Dev:install:
     - scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/wazuh_credentials.txt ${TF_ROOT}/wazuh_credentials.txt
   tags:
     - "terraform"
-  # when: manual
+  when: manual
   artifacts:
     paths:
       - ${TF_ROOT}/wazuh_credentials.txt
