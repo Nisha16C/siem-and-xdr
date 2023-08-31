@@ -39,7 +39,7 @@ Dev:install:
     - ssh -i cloudstack-key -oStrictHostKeyChecking=no -t ubuntu@${VM_IP}<install_tool.sh
     
 
-    - scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/elastic_cred.txt ${TF_ROOT}/elastic_cred.txt
+    - sudo scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:/root/elastic_cred.txt ${TF_ROOT}/elastic_cred.txt
   tags:
     - "terraform"
   when: manual
