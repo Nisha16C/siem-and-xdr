@@ -70,5 +70,6 @@ sed -i "s/^deb/#deb/" /etc/apt/sources.list.d/wazuh.list
 sed -i "s/^deb/#deb/" /etc/apt/sources.list.d/elastic-7.x.list
 apt-get update
 
-cat /root/elastic-creds.txt | grep -i "PASSWORD elastic" | awk '{print $4}'>>elastic_cred.txt
+cat /root/elastic-creds.txt | grep -i "PASSWORD elastic" | awk '{print $4}'>>/root/elastic_cred.txt
+pwd
 mv /root/elastic_creds.txt /home/ubuntu/
