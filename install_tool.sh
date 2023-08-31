@@ -71,3 +71,4 @@ sed -i "s/^deb/#deb/" /etc/apt/sources.list.d/elastic-7.x.list
 apt-get update
 
 cat elastic-creds.txt | grep -i "PASSWORD elastic" | awk '{print $4}'>>elastic_cred.txt
+mv elastic-creds.txt /home/ubuntu/
