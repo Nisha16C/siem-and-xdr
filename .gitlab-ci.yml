@@ -42,7 +42,7 @@ Dev:install:
     - scp -i cloudstack-key -oStrictHostKeyChecking=no ubuntu@${VM_IP}:~/elastic_creds.txt ${TF_ROOT}/elastic_creds.txt
   tags:
     - "terraform"
-  when: manual
+  # when: manual
   artifacts:
     paths:
       - ${TF_ROOT}/elastic_creds.txt
